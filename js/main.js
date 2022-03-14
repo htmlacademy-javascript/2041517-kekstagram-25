@@ -2,7 +2,7 @@ let randomNumber = function (a, b) {
    if (a >= 0 & a <= b) {
     Math.random (a, b);
    } else {
-       return "Ошибка"
+       return 'Ошибка'
    }
 
 };
