@@ -1,14 +1,17 @@
-let randomNumber = function (a, b) {
-    if (a >= 0 & a <= b) {
-     Math.random (a, b);
+let getRandomNumber = function (min, max) {
+    if (min >= 0 & min <= max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     } else {
         return 'Ошибка'
     }
  
  };
  
- let commentLength = function (a) {
-     if (a <= 140 & a >= 0) {
+ let checkCommentLength = function (string, length) {
+    
+     if (string <= length & string >= 0) {
          return true;
  
  
@@ -19,6 +22,6 @@ let randomNumber = function (a, b) {
    
  };
  
- commentLength(3, 140);
- randomNumber(6, 56);
+ checkCommentLength(3, 140);
+ getRandomNumber(6, 56);
  
