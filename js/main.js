@@ -22,6 +22,6 @@ let getRandomNumber = function (min, max) {
    
  };
  
- commentLength(3, 140);
- randomNumber(6, 56);
+ checkCommentLength(3, 140);
+ getRandomNumber(6, 56);
  
