@@ -34,30 +34,27 @@ const getDescription = [
     'Марина'
  ];
 
-/*
-function getRandomPositiveInteger (a, b) {
-    const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-    const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-    const result = Math.random() * (upper - lower + 1) + lower;
-    return Math.floor(result);
-  };
-*/
 const similarCount = 25;
 
+const getRandomInt = (min, max) => {
+    if (min < 0 || max < 0) {return - 1; };
+    if (min > max) { [min, max] = [max, min]};
+    return Math.floor((Math.random() * (max - min + 1) + min));
+};
 
+const userId = Array.from({length: 10}, (v, i) => ++i);
 
- // Сгенерировал массив уникальных id от 1 до SIMILAR_AD_COUNT = 10.
-// Т.е. количество id равно количеству объектов которые я буду генерировать. 
-const usersId = Array.from({length: similarCount}, (v, i) => ++i);
-
-// Далее я просто выпиливал по рандомному индексу 1 значение из этого массива, пока там ничего не осталось.
 const getUniqueImgNumber = () => {
-  const imgNumber = usersId.splice(getRandomIndex(usersId), 1);
+    const imgNumber = userId.splice(getRandomInt(0, (userId.length - 1)), 1);
+    return imgNumber < 10 ? '0${imgNumber}' :  '${imgNumber}';
+};
 
-  // Добавляю ноль перед цифрой, если цифра не двухзначная, и возвращаю результат из функции.
-  return imgNumber < 10 ? 0${imgNumber} : imgNumber;
-}; 
-
+const someArr = []
+for (let i = 0; i < similarCount; i++) {
+    let k = getUniqueImgNumber();
+    someArr.push(k);
+};
+/*
   function generateArrayRandomNumber (min, max) {
 	var totalNumbers 		= max - min + 1,
 		arrayTotalNumbers 	= [],
@@ -76,7 +73,7 @@ const getUniqueImgNumber = () => {
 
 	return arrayRandomNumbers;
 }
-
+*/
 //	Нужно учесть что в диапазоне участвуют и минимальное и максимальное число
 //	тоесть если задать (0, 100) то на выходе получим массив из 101-го числа
 //	от 1 до 100 и плюс число 0
@@ -92,7 +89,7 @@ const getUniqueImgNumber = () => {
       return 'Ошибка'
     }
  };
-let i = getRandomNumber(1, 25);
+
 
 const getRandomArrayElement = (elements) => {
     return elements[getRandomNumber(0, elements.length - 1)];
@@ -100,7 +97,7 @@ const getRandomArrayElement = (elements) => {
 
  const getComment ={
     id: generateArrayRandomNumber(1, 250),
-    avatar: 'img/avatar-'+getRandomNumber(1, 6)+'.svg',
+    avatar: 'img/avatar-'+getRandomInt(1, 6)+'.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
   }; 
@@ -109,10 +106,10 @@ const getRandomArrayElement = (elements) => {
 
  const createObject = () => {
     return {
-      id: getUniqueImgNumber,
-      url: 'photos/'+ getRandomNumber(1, 25) +'.jpg,',
+      id: someArr,
+      url: 'photos/'+ getRandomInt(1, 25) +'.jpg,',
       description: getRandomArrayElement(getDescription),
-      likes: generateArrayRandomNumber(15, 200),
+      likes: getRandomInt(15, 200),
       comment: getComment,
     };
   };
