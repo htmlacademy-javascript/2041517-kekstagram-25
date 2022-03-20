@@ -84,12 +84,12 @@ const getRandomArrayElement = (elements) => {
     return elements[getRandomNumber(0, elements.length - 1)];
   };
 
- const getComment = {
+ const getComment = Array({
     id: getRandomNumber(1, 250),
     avatar: 'img/avatar-{{getRandomNumber(1, 6)}}.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
-  }; 
+  }); 
 
 
 
