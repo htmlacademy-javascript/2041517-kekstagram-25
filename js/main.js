@@ -42,7 +42,7 @@ const getRandomInt = (min, max) => {
     return Math.floor((Math.random() * (max - min + 1) + min));
 };
 
-const userId = Array.from({length: 10}, (v, i) => ++i);
+const userId = Array.from({length: similarCount}, (v, i) => ++i);
 
 const getUniqueImgNumber = () => {
     const imgNumber = userId.splice(getRandomInt(0, (userId.length - 1)), 1);
