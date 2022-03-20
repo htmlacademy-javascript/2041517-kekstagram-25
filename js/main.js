@@ -44,7 +44,7 @@ function getRandomPositiveInteger (a, b) {
 */
 const similarCount = 25;
 
-/*
+
 
  // Сгенерировал массив уникальных id от 1 до SIMILAR_AD_COUNT = 10.
 // Т.е. количество id равно количеству объектов которые я буду генерировать. 
@@ -57,7 +57,7 @@ const getUniqueImgNumber = () => {
   // Добавляю ноль перед цифрой, если цифра не двухзначная, и возвращаю результат из функции.
   return imgNumber < 10 ? 0${imgNumber} : imgNumber;
 }; 
-*/
+
   function generateArrayRandomNumber (min, max) {
 	var totalNumbers 		= max - min + 1,
 		arrayTotalNumbers 	= [],
@@ -109,7 +109,7 @@ const getRandomArrayElement = (elements) => {
 
  const createObject = () => {
     return {
-      id: usersId,
+      id: getUniqueImgNumber,
       url: 'photos/'+ getRandomNumber(1, 25) +'.jpg,',
       description: getRandomArrayElement(getDescription),
       likes: generateArrayRandomNumber(15, 200),
