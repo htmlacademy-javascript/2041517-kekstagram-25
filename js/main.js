@@ -42,8 +42,10 @@ function getRandomPositiveInteger (a, b) {
     return Math.floor(result);
   };
 */
-/*
 const similarCount = 25;
+
+/*
+
  // Сгенерировал массив уникальных id от 1 до SIMILAR_AD_COUNT = 10.
 // Т.е. количество id равно количеству объектов которые я буду генерировать. 
 const usersId = Array.from({length: similarCount}, (v, i) => ++i);
