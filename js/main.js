@@ -84,7 +84,7 @@ const getRandomArrayElement = (elements) => {
     return elements[getRandomNumber(0, elements.length - 1)];
   };
 
- const getomment = {
+ const getComment = {
     id: getRandomNumber(1, 250),
     avatar: 'img/avatar-{{getRandomNumber(1, 6)}}.svg',
     message: getRandomArrayElement(getMessage),
@@ -99,7 +99,7 @@ const getRandomArrayElement = (elements) => {
       url: "photos/{{getRandomNumber(1, 25)}}.jpg,",
       description: getRandomArrayElement(getDescription),
       likes: getRandomNumber(15, 200),
-      comment
+      comment: getComment,
     };
   };
 
