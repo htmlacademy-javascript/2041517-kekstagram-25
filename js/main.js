@@ -42,7 +42,20 @@ function getRandomPositiveInteger (a, b) {
     return Math.floor(result);
   };
 */
- 
+
+const similarCount = 25;
+ // Сгенерировал массив уникальных id от 1 до SIMILAR_AD_COUNT = 10.
+// Т.е. количество id равно количеству объектов которые я буду генерировать. 
+const usersId = Array.from({length: similarCount}, (v, i) => ++i);
+
+// Далее я просто выпиливал по рандомному индексу 1 значение из этого массива, пока там ничего не осталось.
+const getUniqueImgNumber = () => {
+  const imgNumber = usersId.splice(getRandomIndex(usersId), 1);
+
+  // Добавляю ноль перед цифрой, если цифра не двухзначная, и возвращаю результат из функции.
+  return imgNumber < 10 ? 0${imgNumber} : imgNumber;
+}; 
+
   function generateArrayRandomNumber (min, max) {
 	var totalNumbers 		= max - min + 1,
 		arrayTotalNumbers 	= [],
@@ -83,25 +96,25 @@ const getRandomArrayElement = (elements) => {
     return elements[getRandomNumber(0, elements.length - 1)];
   };
 
- const getComment = Array({
+ const getComment ={
     id: generateArrayRandomNumber(1, 250),
-    avatar: 'img/avatar-{{getRandomNumber(1, 6)}}.svg',
+    avatar: 'img/avatar-'+getRandomNumber(1, 6)+'.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
-  }); 
+  }; 
 
 
 
  const createObject = () => {
     return {
-      id: generateArrayRandomNumber(1, 25),
-      url: "photos/{{getRandomNumber(1, 25)}}.jpg,",
+      id: usersId,
+      url: 'photos/'+ getRandomNumber(1, 25) +'.jpg,",
       description: getRandomArrayElement(getDescription),
       likes: generateArrayRandomNumber(15, 200),
       comment: getComment,
     };
   };
 
-const similarObjects = Array.from({length: 25}, createObject);
+const similarObjects = Array.from({length: similarCount}, createObject);
 
 console.log(similarObjects);
