@@ -42,7 +42,7 @@ function getRandomPositiveInteger (a, b) {
     return Math.floor(result);
   };
 */
-/*  
+ 
   function generateArrayRandomNumber (min, max) {
 	var totalNumbers 		= max - min + 1,
 		arrayTotalNumbers 	= [],
@@ -66,8 +66,7 @@ function getRandomPositiveInteger (a, b) {
 //	тоесть если задать (0, 100) то на выходе получим массив из 101-го числа
 //	от 1 до 100 и плюс число 0
 
-console.log(generateArrayRandomNumber(1, 25));
-*/
+
 
  const getRandomNumber = function (min, max) {
     if (min >= 0 & min <= max) {
@@ -85,7 +84,7 @@ const getRandomArrayElement = (elements) => {
   };
 
  const getComment = Array({
-    id: getRandomNumber(1, 250),
+    id: generateArrayRandomNumber(1, 250),
     avatar: 'img/avatar-{{getRandomNumber(1, 6)}}.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
@@ -95,10 +94,10 @@ const getRandomArrayElement = (elements) => {
 
  const createObject = () => {
     return {
-      id: getRandomNumber(1, 25),
+      id: generateArrayRandomNumber(1, 25),
       url: "photos/{{getRandomNumber(1, 25)}}.jpg,",
       description: getRandomArrayElement(getDescription),
-      likes: getRandomNumber(15, 200),
+      likes: generateArrayRandomNumber(15, 200),
       comment: getComment,
     };
   };
