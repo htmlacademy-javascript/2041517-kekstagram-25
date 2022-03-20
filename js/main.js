@@ -33,7 +33,7 @@ const getDescription = [
     'Капитолина',
     'Марина'
  ];
-
+// 
 const similarCount = 25;
 
 const getRandomInt = (min, max) => {
@@ -54,6 +54,7 @@ for (let i = 0; i < similarCount; i++) {
     let k = getUniqueImgNumber();
     someArr.push(k);
 };
+console.log(someArr);
 /*
   function generateArrayRandomNumber (min, max) {
 	var totalNumbers 		= max - min + 1,
