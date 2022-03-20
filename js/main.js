@@ -81,7 +81,7 @@ console.log(generateArrayRandomNumber(1, 25));
 let i = getRandomNumber(1, 25);
 
 const getRandomArrayElement = (elements) => {
-    return elements[getRandomPositiveInteger(0, elements.length - 1)];
+    return elements[getRandomNumber(0, elements.length - 1)];
   };
 
  const getomment = {
