@@ -35,26 +35,26 @@ const getDescription = [
  ];
 
 const similarCount = 25;
-
+/*
 const getRandomInt = (min, max) => {
   if (min < 0 || max < 0) {return - 1; };
   if (min > max) { [min, max] = [max, min]};
   return Math.floor((Math.random() * (max - min + 1) + min));
 };
-
+*/
 let numReserve = []
 while (numReserve.length < similarCount) {  
   let foundSimilar = false;
   for (var i = 0; i < numReserve.length; i++) {
-  if (numReserve[i] === getRandomInt){
+  if (numReserve[i] === getRandomNumber){
    foundSimilar = true;
    break;
   }
   }
-  if (!foundSimilar) { numReserve[numReserve.length]=getRandomInt; }
+  if (!foundSimilar) { numReserve[numReserve.length]=getRandomNumber; }
 };
 
-/*
+
  const getRandomNumber = function (min, max) {
     if (min >= 0 & min <= max) {
         min = Math.ceil(min);
@@ -64,15 +64,15 @@ while (numReserve.length < similarCount) {
       return 'Ошибка'
     }
  };
-*/
+
 
 const getRandomArrayElement = (elements) => {
     return elements[getRandomInt(0, elements.length - 1)];
   };
 
- const getComment ={
+ const getComment = {
     id: numReserve,
-    avatar: 'img/avatar-'+getRandomInt(1, 6)+'.svg',
+    avatar: 'img/avatar-'+getRandomNumber(1, 6)+'.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
   }; 
@@ -82,9 +82,9 @@ const getRandomArrayElement = (elements) => {
  const createObject = () => {
     return {
       id: numReserve,
-      url: 'photos/'+ getRandomInt(1, 25) +'.jpg,',
+      url: 'photos/'+ getRandomNumber(1, 25) +'.jpg,',
       description: getRandomArrayElement(getDescription),
-      likes: getRandomInt(15, 200),
+      likes: getRandomNumber(15, 200),
       comment: getComment,
     };
   };
