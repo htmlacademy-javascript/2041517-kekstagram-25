@@ -53,27 +53,26 @@ const getRandomInt = (min, max) => {
   return Math.floor((Math.random() * (max - min + 1) + min));
 };
 */
-let numReserve = []
-while (numReserve.length < similarCount) {  
-  let foundSimilar = false;
-  for (var i = 0; i < numReserve.length; i++) {
-  if (numReserve[i] === getRandomNumber){
-   foundSimilar = true;
-   break;
-  }
-  }
-  if (!foundSimilar) { numReserve[numReserve.length]=getRandomNumber; }
+
+function shuffle (array) {
+  var i = 0;
+     j = 0;
+     temp = null;
+
+  for (i = array.length - 1; i > 0; i -= 1) {
+    j = getRandomNumber(1, 25)
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  };
 };
-
-
- 
 
 const getRandomArrayElement = (elements) => {
     return elements[getRandomInt(0, elements.length - 1)];
   };
 
  const getComment = {
-    id: numReserve,
+    id: shuffle,
     avatar: 'img/avatar-'+getRandomNumber(1, 6)+'.svg',
     message: getRandomArrayElement(getMessage),
     name: getRandomArrayElement(getName),
@@ -83,7 +82,7 @@ const getRandomArrayElement = (elements) => {
 
  const createObject = () => {
     return {
-      id: numReserve,
+      id: shuffle,
       url: 'photos/'+ getRandomNumber(1, 25) +'.jpg,',
       description: getRandomArrayElement(getDescription),
       likes: getRandomNumber(15, 200),
