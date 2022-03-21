@@ -35,6 +35,17 @@ const getDescription = [
  ];
 
 const similarCount = 25;
+
+const getRandomNumber = function (min, max) {
+    if (min >= 0 & min <= max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    } else {
+      return 'Ошибка'
+    }
+ };
+
 /*
 const getRandomInt = (min, max) => {
   if (min < 0 || max < 0) {return - 1; };
@@ -55,16 +66,7 @@ while (numReserve.length < similarCount) {
 };
 
 
- const getRandomNumber = function (min, max) {
-    if (min >= 0 & min <= max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    } else {
-      return 'Ошибка'
-    }
- };
-
+ 
 
 const getRandomArrayElement = (elements) => {
     return elements[getRandomInt(0, elements.length - 1)];
