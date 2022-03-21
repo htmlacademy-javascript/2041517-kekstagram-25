@@ -68,7 +68,7 @@ function shuffle (array) {
 };
 
 const getRandomArrayElement = (elements) => {
-    return elements[getRandomInt(0, elements.length - 1)];
+    return elements[getRandomNumber(0, elements.length - 1)];
   };
 
  const getComment = {
