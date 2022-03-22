@@ -92,7 +92,7 @@ function generatePhotoUrl () {
       url: generatePhotoUrl(),
       description: getRandomArrayElement(DESCRIPTIONS),
       likes: getRandomInt(15, 200),
-      comments: Array.from({length: getRandomInt(0, MAX_COMMENTS_COUNT)}, createComment);
+      comments: Array.from({length: getRandomInt(0, MAX_COMMENTS_COUNT)}, createComment),
     };
   };
 
