@@ -75,7 +75,7 @@ function generatePhotoUrl () {
 
   
   
-  const getComment = function() {
+  const createComment = function() {
     return {
       id: generateId(),
       avatar: generateAvatar(),
