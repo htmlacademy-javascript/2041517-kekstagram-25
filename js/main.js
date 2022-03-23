@@ -59,20 +59,47 @@ const getRandomArrayElement = (elements) => {
   };
 
 function generateId () {
-  return getRandomInt(1, 25);
-
+  let arrayId = [];
+  let random = getRandomInt(1, 25);
+  for (let i = 0; i < 25; i++) {
+    if (arrayId.indexOf(random) != -1) {
+    arrayId.push(random);
+    };
+  };
+  return getRandomArrayElement(arrayId);
 };
-
+/*
+var arr = []                         //записываем в этот массив рандомные числа
+var max;                              // максимальная длина массива 
+var rundomnumber;                     //случайное число
+ 
+ while (arr.length <= max) {
+ 
+        rundomnumber = Math.floor(Math.random() * max); //создадим случайное число
+ 
+        if (arr.indexOf(rundomnumber) == -1) {         // проверим есть оно  у нас или нет 
+ 
+            arr.push(rundomnumber);         // записываем в массив т.к нету
+ 
+        }
+ 
+    }
+*/
 function generateAvatar () {
   return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
 };
 
 
 function generatePhotoUrl () {
-  return 'photos/' + getRandomInt(1, 25) + '.jpg,';
-  
+    let arrayId = [];
+    let random = getRandomInt(1, 25);
+    for (let i = 0; i < 25; i++) {
+      if (arrayId.indexOf(random) == -1) {
+      arrayId.push(random);
+       };
+      };     
+  return 'photos/' + getRandomArrayElement(arrayId) + '.jpg,';
 };
-
   
   
   const createComment = function() {
