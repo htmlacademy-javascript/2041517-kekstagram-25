@@ -58,10 +58,13 @@ const getRandomArrayElement = (elements) => {
     return elements[getRandomInt(0, elements.length - 1)];
   };
 
+
+
+
 const generateId = function () {
   let arrayId = [];
-  let random = getRandomInt(1, 25);
   for (let i = 0; i < 25; ++i) {
+    let random = getRandomInt(1, 25);
     if (arrayId.indexOf(random) === -1) {
     arrayId.push(random);
     };
@@ -75,9 +78,9 @@ const generateAvatar = function () {
 
 
 const generatePhotoUrl = function () {
-    let arrayId = [];
-    let randomNumber = getRandomInt(1, 25);
+    let arrayId = [];    
     for (let i = 0; i < 25; ++i) {
+      let randomNumber = getRandomInt(1, 25);
       if (arrayId.indexOf(randomNumber) === -1) {
       arrayId.push(randomNumber);
        };
@@ -110,3 +113,5 @@ const generatePhotoUrl = function () {
 const photos = Array.from({length: photosCount}, createObject);
 
 console.log(photos);
+
+
