@@ -1,3 +1,6 @@
+import {getRandomInt, getRandomArrayElement} from 'util.js';
+
+
 const DESCRIPTIONS = [
     'Красота',
     'Это я увидел в отпуске',
@@ -6,7 +9,7 @@ const DESCRIPTIONS = [
     'Прикольно, да?:)',
   ];
 
- const MESSAGES = [
+const MESSAGES = [
  'Всё отлично!',
  'В целом всё неплохо. Но не всё.',
  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -15,7 +18,7 @@ const DESCRIPTIONS = [
  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
  ];
 
- const NAMES = [
+const NAMES = [
     'Сергей',
     'Максим',
     'Нина',
@@ -33,71 +36,50 @@ const DESCRIPTIONS = [
     'Капитолина',
     'Марина'
  ];
+
 const MAX_COMMENTS_COUNT = 15;
 const photosCount = 25;
-/*
-const getRandomNumber = function (min, max) {
-    if (min >= 0 & min <= max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    } else {
-      return 'Ошибка'
-    }
- };
-*/
 
-const getRandomInt = (min, max) => {
-  if (min < 0 || max < 0) {return - 1; };
-  if (min > max) { [min, max] = [max, min]};
-  return Math.floor((Math.random() * (max - min + 1) + min));
-};
-
-
-const getRandomArrayElement = (elements) => {
-    return elements[getRandomInt(0, elements.length - 1)];
-  };
-
-const generateId = function () {
-  let arrayId = [];
-  let random = getRandomInt(1, 25);
-  for (let i = 0; i < 25; ++i) {
-    if (arrayId.indexOf(random) === -1) {
-    arrayId.push(random);
+function generateId () {
+    let arrayId = [];    
+    for (let i = 0; i < 25; i++) {
+      let random = getRandomInt(1, 25);  
+      if (arrayId.indexOf(random)) {
+          return;
+      } else {
+      arrayId.push(random);
+      };
     };
-  };
-  return getRandomArrayElement(arrayId);
+    return getRandomArrayElement(arrayId);
 };
 
-const generateAvatar = function () {
-  return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
+function generateAvatar () {
+    return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
 };
 
-
-const generatePhotoUrl = function () {
-    let arrayId = [];
-    let randomNumber = getRandomInt(1, 25);
-    for (let i = 0; i < 25; ++i) {
-      if (arrayId.indexOf(randomNumber) === -1) {
-      arrayId.push(randomNumber);
-       };
-      };     
+function generatePhotoUrl () {
+    let arrayId = [];    
+    for (let i = 0; i < 25; i++) {
+      let random = getRandomInt(1, 25); 
+      if (arrayId.indexOf(random)) {
+          return;
+      } else {
+      arrayId.push(random);
+        };
+       };           
   return 'photos/' + getRandomArrayElement(arrayId) + '.jpg,';
 };
-  
-  
-  const createComment = function() {
+
+const createComment = function() {
     return {
       id: generateId(),
       avatar: generateAvatar(),
       message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(NAMES),
     };
-  };
+};
 
-
-
- const createObject = () => {
+const createObject = () => {
     return {
       id: generateId(),
       url: generatePhotoUrl(),
@@ -105,8 +87,7 @@ const generatePhotoUrl = function () {
       likes: getRandomInt(15, 200),
       comments: Array.from({length: getRandomInt(0, MAX_COMMENTS_COUNT)}, createComment),
     };
-  };
+};
 
-const photos = Array.from({length: photosCount}, createObject);
-
-console.log(photos);
+export {createObject};
+export {createComment};
