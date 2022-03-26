@@ -35,17 +35,7 @@ const DESCRIPTIONS = [
 ];
 const MAX_COMMENTS_COUNT = 15;
 const photosCount = 25;
-/*
-const getRandomNumber = function (min, max) {
-    if (min >= 0 & min <= max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    } else {
-      return 'Ошибка'
-    }
- };
-*/
+
 
 const getRandomInt = (min, max) => {
   if (min < 0 || max < 0) return - 1;
@@ -57,16 +47,23 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomInt(0, elements.length - 1)];
 };
 
-const generateRandomId = function () {
-  let arrayId = [];
-  for (let i = 0; i < photosCount; ++i) {
-    let randomId = getRandomInt(1, 500);
-    if (arrayId.indexOf(randomId) === -1) {
-    arrayId.push(randomId);
-    };
-  };  
-  return getRandomArrayElement(arrayId);
+const generateRandomId = function (min, max) {
+  const arrayId = [];
+  
+  return function () {
+    let currentIdValue = getRandomInt(min, max);
+    if (arrayId.length >= (max - min + 1)) {
+      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
+      return null
+    }
+    while (arrayId.includes(currentIdValue)) {
+      currentIdValue = getRandomInt(min, max);
+    }
+    arrayId.push(currentIdValue);
+    return currentIdValue;
+  };
 };
+
 
 let introId = 0;
 const generateId = function () {
@@ -81,9 +78,13 @@ const generatePhotoUrl = function () {
    return 'photos/' + ++introPhotoUrl + '.jpg,';
   };
 
+
+const createRandomId = generateRandomId(1, 500);
+
+
 const createComment = () => {
   return {
-    id: generateRandomId(),
+    id: createRandomId(),
     avatar: generateAvatar(),
     message: getRandomArrayElement(MESSAGES),
     name: getRandomArrayElement(NAMES),
