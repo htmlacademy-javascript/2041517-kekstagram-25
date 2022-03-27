@@ -64,7 +64,7 @@ const generateRandomId = function (min, max) {
 };
 
 
-let introId = 0;
+const introId = 0;
 const generateId = function () {
   return ++introId;
 };
@@ -72,7 +72,7 @@ const generateId = function () {
 const generateAvatar = function () {
   return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
 };
-let introPhotoUrl = 0;
+const introPhotoUrl = 0;
 const generatePhotoUrl = function () {
    return 'photos/' + ++introPhotoUrl + '.jpg,';
   };
