@@ -47,9 +47,8 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomInt(0, elements.length - 1)];
 };
 
-const generateRandomId = function (min, max) {
-  const arrayId = [];
-  
+const arrayId = [];
+const generateRandomId = function (min, max) {  
   return function () {
     let currentIdValue = getRandomInt(min, max);
     if (arrayId.length >= (max - min + 1)) {
@@ -65,7 +64,7 @@ const generateRandomId = function (min, max) {
 };
 
 
-let introId = 0;
+const introId = 0;
 const generateId = function () {
   return ++introId;
 };
@@ -73,13 +72,14 @@ const generateId = function () {
 const generateAvatar = function () {
   return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
 };
-let introPhotoUrl = 0;
+const introPhotoUrl = 0;
 const generatePhotoUrl = function () {
    return 'photos/' + ++introPhotoUrl + '.jpg,';
   };
 
-
-const createRandomId = generateRandomId(1, 500);
+const minRangeInt = 1;
+const maxRangeInt = 500;
+const createRandomId = generateRandomId(minRangeInt, maxRangeInt);
 
 
 const createComment = () => {
@@ -104,5 +104,3 @@ const createObject = () => {
 const photos = Array.from({length: photosCount}, createObject);
 
 console.log(photos);
-
-
