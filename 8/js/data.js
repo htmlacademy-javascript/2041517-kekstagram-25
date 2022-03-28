@@ -41,7 +41,7 @@ const photosCount = 25;
 const arrayId = [];
 const generateRandomId = function (min, max) {  
     return function () {
-      const currentIdValue = getRandomInt(min, max);
+      let currentIdValue = getRandomInt(min, max);
       if (arrayId.length >= (max - min + 1)) {
         console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
         return null
@@ -55,7 +55,7 @@ const generateRandomId = function (min, max) {
 };
   
   
-const introId = 0;
+let introId = 0;
 const generateId = function () {
     return ++introId;
 };
@@ -63,7 +63,7 @@ const generateId = function () {
 const generateAvatar = function () {
     return 'img/avatar-' + getRandomInt(1, 6) + '.svg';
 };
-const introPhotoUrl = 0;
+let introPhotoUrl = 0;
 const generatePhotoUrl = function () {
     return 'photos/' + ++introPhotoUrl + '.jpg,';
 };
