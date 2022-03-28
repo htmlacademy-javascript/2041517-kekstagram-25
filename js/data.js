@@ -41,7 +41,7 @@ const photosCount = 25;
 const arrayId = [];
 const generateRandomId = function (min, max) {  
     return function () {
-      let currentIdValue = getRandomInt(min, max);
+      const currentIdValue = getRandomInt(min, max);
       if (arrayId.length >= (max - min + 1)) {
         console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
         return null
