@@ -36,17 +36,17 @@ const NAMES = [
     'Марина'
 ];
 const MAX_COMMENTS_COUNT = 15;
-const photosCount = 25;
+const PHOTOS_COUNT = 25;
   
-const arrayId = [];
+const arrayIds = [];
 const generateRandomId = function (min, max) {  
     return function () {
       let currentIdValue = getRandomInt(min, max);
-      if (arrayId.length >= (max - min + 1)) {
+      if (arrayIds.length >= (max - min + 1)) {
         console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
         return null
       }
-      while (arrayId.includes(currentIdValue)) {
+      while (arrayIds.includes(currentIdValue)) {
         currentIdValue = getRandomInt(min, max);
       }
       arrayId.push(currentIdValue);
@@ -68,9 +68,9 @@ const generatePhotoUrl = function () {
     return 'photos/' + ++introPhotoUrl + '.jpg,';
 };
   
-const minRangeInt = 1;
-const maxRangeInt = 500;
-const createRandomId = generateRandomId(minRangeInt, maxRangeInt);
+const MIN_RANGE_INT = 1;
+const MAX_RANGE_INT = 500;
+const createRandomId = generateRandomId(MIN_RANGE_INT, MAX_RANGE_INT);
   
   
 const createComment = () => {
@@ -92,6 +92,6 @@ const createObject = () => {
     };
 };
   
-const photos = () => Array.from({length: photosCount}, createObject);
+const generatePhotos = () => Array.from({length: PHOTOS_COUNT}, createObject);
 
-export {photos};
+export {generatePhotos};
