@@ -1,5 +1,7 @@
 import {generatePhotos} from './data.js';
-const photoContainer = document.querySelector('.pictures')
+const photoContainer = document.querySelector('.pictures');
+photoContainer.classList.remove('.visually-hidden');
+photoContainer.children.classList.remove('.visually-hidden');
 
 const similarPhotos = generatePhotos();
 const templateFragment = document.querySelector('#picture').content.querySelector('.picture');
