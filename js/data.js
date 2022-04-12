@@ -49,7 +49,7 @@ const generateRandomId = function (min, max) {
       while (arrayIds.includes(currentIdValue)) {
         currentIdValue = getRandomInt(min, max);
       }
-      arrayId.push(currentIdValue);
+      arrayIds.push(currentIdValue);
       return currentIdValue;
     };
 };
