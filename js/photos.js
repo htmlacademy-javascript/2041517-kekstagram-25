@@ -10,7 +10,7 @@ const similarListFragment = document.createDocumentFragment();
 
 similarPhotos.forEach(({url, likes, comments}) => {
   const photosElement = templateFragment.cloneNode(true);
-  photosElement.querySelector('.picture__img').src = url;
+  photosElement.querySelector('.picture__img').src = url;  
   photosElement.querySelector('.picture__likes').textContent = likes;
   photosElement.querySelector('.picture__comments').textContent = comments.length;
   similarListFragment.appendChild(photosElement);
