@@ -65,7 +65,7 @@ const generateAvatar = function () {
 };
 let introPhotoUrl = 0;
 const generatePhotoUrl = function () {
-    return 'photos/' + ++introPhotoUrl + '.jpg,';
+    return 'photos/' + ++introPhotoUrl + '.jpg';
 };
   
 const MIN_RANGE_INT = 1;
