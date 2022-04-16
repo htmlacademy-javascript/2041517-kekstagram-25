@@ -1,4 +1,5 @@
-import {photos} from './data.js';
+import {generatePhotos} from './data.js';
 import './util.js';
-
-console.log(photos());
+import {loadPhotos} from './photos.js';
+console.log(generatePhotos());
+console.log(loadPhotos());
